@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pragati Invest
 
-## Getting Started
+Business website for `pragatiinvest.com`.
 
-First, run the development server:
+## What this site is
+
+This is a Next.js landing site for a lean two-founder automation studio focused on:
+
+- workflow automation
+- internal tools
+- AI-assisted operations
+- system integration for business teams
+
+The messaging is positioned around the meaning of **Pragati**: progress.
+
+## Local development
+
+Run:
 
 ```bash
+cd /Users/apple/pragati-frontend
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If port `3000` is already occupied, Next.js will choose the next available port.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Run:
 
-## Learn More
+```bash
+cd /Users/apple/pragati-frontend
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+This project builds successfully with:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+next build --webpack
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Webpack is used here because Turbopack was unstable in this environment.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Recommended hosting target: **Vercel**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Vercel settings
+
+- Framework preset: `Next.js`
+- Root directory: `pragati-frontend` if this project lives inside a larger repo
+- Build command: `npm run build`
+- Install command: `npm install`
+
+### Domain setup
+
+Add:
+
+- `pragatiinvest.com`
+- `www.pragatiinvest.com`
+
+inside the Vercel project domain settings, then update your registrar DNS as Vercel instructs.
+
+## SEO included
+
+The site includes:
+
+- title and description metadata
+- Open Graph metadata
+- Twitter metadata
+- canonical URL
+- JSON-LD structured data
+- `robots.txt`
+- `sitemap.xml`
+
+## Contact flow
+
+The site currently includes a lightweight discovery form that:
+
+- collects lead details
+- validates required fields
+- opens a prefilled email to `hello@pragatiinvest.com`
+
+This is suitable for MVP launch. A backend submission endpoint can be added later.
