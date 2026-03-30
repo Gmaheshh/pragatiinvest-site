@@ -61,7 +61,7 @@ export default function Home() {
       "Operational challenge:",
       form.workflow || "-",
     ].join("\n");
-    return `mailto:hello@pragatiinvest.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return `mailto:pragatii.invest@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }, [form]);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -113,10 +113,10 @@ export default function Home() {
                 Schedule a consultation
               </a>
               <a
-                href="mailto:hello@pragatiinvest.com"
+                href="mailto:pragatii.invest@gmail.com"
                 className="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
               >
-                hello@pragatiinvest.com
+                pragatii.invest@gmail.com
               </a>
             </div>
           </div>
@@ -300,7 +300,7 @@ export default function Home() {
             url: "https://pragatiinvest.com",
             description:
               "Pragati Invest provides business intelligence, AI-powered process automation, and AI readiness advisory for Indian SMEs and family-run businesses.",
-            email: "hello@pragatiinvest.com",
+            email: "pragatii.invest@gmail.com",
             areaServed: "India",
             serviceType: [
               "Business Intelligence",

@@ -80,6 +80,6 @@ The site currently includes a lightweight discovery form that:
 
 - collects lead details
 - validates required fields
-- opens a prefilled email to `hello@pragatiinvest.com`
+- opens a prefilled email to `pragatii.invest@gmail.com`
 
 This is suitable for MVP launch. A backend submission endpoint can be added later.
