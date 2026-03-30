@@ -2,56 +2,42 @@
 
 import { useMemo, useState } from "react";
 
-const services = [
+const offerings = [
   {
-    title: "Workflow Automation",
-    text: "We reduce manual business work across finance, operations, reporting, document handling, approvals, and follow-ups.",
+    title: "Business intelligence and performance dashboards",
+    text: "Executive-ready visibility into operations, sales, inventory, supplier performance, and financial health.",
   },
   {
-    title: "Internal Tools",
-    text: "We build focused dashboards, portals, trackers, and review panels that fit the way your team already works.",
+    title: "AI-powered process automation",
+    text: "Automation for document processing, order workflows, customer operations, and internal coordination.",
   },
   {
-    title: "AI Assistants",
-    text: "We add OCR, extraction, summaries, validation layers, and smart assistants where repetitive information work slows teams down.",
-  },
-  {
-    title: "System Integration",
-    text: "We connect spreadsheets, CRMs, ERPs, APIs, WhatsApp, email, and databases so information moves without copy-paste.",
+    title: "AI readiness assessment and roadmap",
+    text: "A practical plan for where to start, what to automate, and how to implement AI without unnecessary complexity.",
   },
 ];
 
-const outcomes = [
-  "Lower turnaround time for repetitive tasks",
-  "Fewer manual errors in day-to-day operations",
-  "Better visibility across teams and processes",
-  "Faster decisions through live dashboards and alerts",
+const industries = [
+  "Manufacturing",
+  "Trading and distribution",
+  "Retail and e-commerce",
+  "Construction and infrastructure",
+  "FMCG and consumer goods",
 ];
 
-const sectors = [
-  "Trading and finance operations",
-  "Manufacturing and procurement teams",
-  "Real estate and service businesses",
-  "CA firms, back offices, and admin-heavy teams",
+const differentiators = [
+  "We understand business metrics, operations, and decision-making, not just software terminology.",
+  "We work with SME realities and focus on practical systems that teams can adopt quickly.",
+  "We build working prototypes fast so clients can validate value early.",
+  "We focus on measurable outcomes such as time saved, errors reduced, and decisions accelerated.",
 ];
 
-const process = [
-  {
-    step: "1. Understand the workflow",
-    detail: "We study how work moves today, where delays happen, and which steps are still manual.",
-  },
-  {
-    step: "2. Build the smallest useful system",
-    detail: "We start with a focused MVP that solves the highest-friction bottleneck first.",
-  },
-  {
-    step: "3. Deploy and refine quickly",
-    detail: "We improve with live feedback from your staff instead of spending months on broad assumptions.",
-  },
-  {
-    step: "4. Scale only what works",
-    detail: "Once the system proves value, we extend it into adjacent workflows and reporting layers.",
-  },
+const engagement = [
+  "Discovery and scoping",
+  "Proposal and implementation roadmap",
+  "Prototype development",
+  "Deployment and training",
+  "Ongoing optimization and support",
 ];
 
 export default function Home() {
@@ -65,14 +51,14 @@ export default function Home() {
   const [formMessage, setFormMessage] = useState("");
 
   const proposalMailto = useMemo(() => {
-    const subject = `Automation Discovery Request${form.company ? ` - ${form.company}` : ""}`;
+    const subject = `Pragati Invest Discovery Request${form.company ? ` - ${form.company}` : ""}`;
     const body = [
       `Name: ${form.name || "-"}`,
       `Company: ${form.company || "-"}`,
       `Email: ${form.email || "-"}`,
       `Phone: ${form.phone || "-"}`,
       "",
-      "Workflow / Problem Statement:",
+      "Operational challenge:",
       form.workflow || "-",
     ].join("\n");
     return `mailto:hello@pragatiinvest.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -81,294 +67,227 @@ export default function Home() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.workflow.trim()) {
-      setFormMessage("Please fill in your name, email, and workflow details.");
+      setFormMessage("Please add your name, email, and operational challenge.");
       return;
     }
-    setFormMessage("Opening your email client with the filled project brief.");
+    setFormMessage("Opening your email client with the completed brief.");
     window.location.href = proposalMailto;
   }
 
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(24,113,255,0.16),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(11,143,101,0.16),_transparent_30%),linear-gradient(180deg,_#f2f6ff_0%,_#f9fbff_52%,_#eef4ff_100%)] text-slate-900">
-      <section className="mx-auto max-w-[1360px] px-8 pb-10 pt-8 lg:px-12">
-        <header className="flex items-center justify-between rounded-[28px] border border-slate-200/80 bg-white/70 px-6 py-5 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur">
-          <div>
-            <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500">Pragati Invest</div>
-            <div className="mt-1 text-2xl font-semibold tracking-tight">Business Automation Studio</div>
-          </div>
-          <div className="hidden items-center gap-3 lg:flex">
-            <a href="#services" className="text-sm text-slate-600 transition hover:text-slate-900">
-              Services
-            </a>
-            <a href="#process" className="text-sm text-slate-600 transition hover:text-slate-900">
-              Process
-            </a>
-            <a href="#proposal" className="text-sm text-slate-600 transition hover:text-slate-900">
-              Proposal
-            </a>
-            <a
-              href="mailto:hello@pragatiinvest.com"
-              className="rounded-full bg-slate-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
-            >
-              Book a discovery call
-            </a>
-          </div>
-        </header>
+    <main className="min-h-screen bg-[#eef2ef] text-slate-900">
+      <header className="mx-auto flex max-w-[1120px] items-center justify-between px-6 py-6 lg:px-10">
+        <div>
+          <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500">Pragati Invest</div>
+          <div className="mt-1 text-lg font-semibold tracking-tight text-slate-950">Strategic AI and Automation Partner</div>
+        </div>
+        <nav className="hidden items-center gap-8 lg:flex">
+          <a href="#offerings" className="text-sm text-slate-600 transition hover:text-slate-950">
+            Offerings
+          </a>
+          <a href="#approach" className="text-sm text-slate-600 transition hover:text-slate-950">
+            Approach
+          </a>
+          <a href="#contact" className="text-sm text-slate-600 transition hover:text-slate-950">
+            Contact
+          </a>
+        </nav>
+      </header>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <section className="rounded-[36px] border border-slate-200/80 bg-white px-8 py-10 shadow-[0_24px_80px_rgba(22,34,61,0.1)] lg:px-10">
-            <div className="inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-700">
-              Progress you can measure
-            </div>
-            <h1 className="mt-6 max-w-4xl font-serif text-5xl leading-[1.05] tracking-tight text-slate-950 lg:text-7xl">
-              We help businesses invest in operational progress, not more manual work.
+      <section className="border-y border-slate-300/70 bg-white">
+        <div className="mx-auto max-w-[1120px] px-6 py-20 lg:px-10 lg:py-28">
+          <div className="max-w-5xl">
+            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#2c5b53]">Business Solutions Partnership</div>
+            <h1 className="mt-6 max-w-5xl text-5xl font-semibold leading-[0.98] tracking-[-0.05em] text-slate-950 lg:text-7xl">
+              AI, analytics, and automation for growth-oriented businesses.
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 lg:text-xl">
-              Pragati Invest builds automation systems for businesses that are stuck in spreadsheets, repeated data entry,
-              document-heavy approvals, and slow internal workflows. We are a lean two-person team that ships useful systems
-              fast, keeps scope practical, and focuses on outcomes that management can actually see.
+            <p className="mt-8 max-w-3xl text-lg leading-8 text-slate-600">
+              We help Indian SMEs and family-run businesses modernize operations, improve visibility, and remove manual process friction
+              through intelligent automation and decision-ready systems.
             </p>
-
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-wrap gap-3">
               <a
-                href="mailto:hello@pragatiinvest.com?subject=Automation%20Discovery%20Call"
-                className="rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+                href="#contact"
+                className="rounded-full bg-[#234f47] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#17352f]"
               >
-                Request a business audit
+                Schedule a consultation
               </a>
               <a
-                href="#proposal"
+                href="mailto:hello@pragatiinvest.com"
                 className="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
               >
-                View our proposal
+                hello@pragatiinvest.com
               </a>
             </div>
-
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
-              <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-5">
-                <div className="text-3xl font-semibold text-slate-950">2</div>
-                <div className="mt-2 text-sm text-slate-600">Founders building directly with clients</div>
-              </div>
-              <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-5">
-                <div className="text-3xl font-semibold text-slate-950">MVP-first</div>
-                <div className="mt-2 text-sm text-slate-600">We start with the highest-friction workflow, not a huge software promise.</div>
-              </div>
-              <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-5">
-                <div className="text-3xl font-semibold text-slate-950">ROI-led</div>
-                <div className="mt-2 text-sm text-slate-600">Every project is framed around saved time, fewer errors, and process visibility.</div>
-              </div>
-            </div>
-          </section>
-
-          <aside className="grid gap-6">
-            <div className="rounded-[32px] border border-slate-200/80 bg-slate-950 p-8 text-white shadow-[0_24px_80px_rgba(15,23,42,0.22)]">
-              <div className="text-sm uppercase tracking-[0.22em] text-blue-200">What Pragati means</div>
-              <p className="mt-5 text-3xl font-semibold leading-tight">
-                Pragati means progress. Our clients invest in systems that move their business forward.
-              </p>
-              <p className="mt-5 text-sm leading-7 text-slate-300">
-                The name Pragati Invest stands for investing in better workflows, better reporting, and better execution. We do not
-                sell generic software. We design operational progress that compounds.
-              </p>
-            </div>
-
-            <div className="rounded-[32px] border border-emerald-200 bg-emerald-50 p-8">
-              <div className="text-sm uppercase tracking-[0.22em] text-emerald-700">Best fit clients</div>
-              <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-700">
-                {sectors.map((sector) => (
-                  <li key={sector} className="flex gap-3">
-                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-emerald-600" />
-                    <span>{sector}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
+          </div>
         </div>
       </section>
 
-      <section id="services" className="mx-auto max-w-[1360px] px-8 py-10 lg:px-12">
-        <div className="mb-6 flex items-end justify-between gap-6">
-          <div>
-            <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500">Services</div>
-            <h2 className="mt-2 font-serif text-4xl tracking-tight text-slate-950 lg:text-5xl">Automation built around real bottlenecks</h2>
-          </div>
-          <p className="hidden max-w-xl text-sm leading-7 text-slate-600 lg:block">
-            We focus on workflows that waste staff hours every week: documents, reconciliation, reporting, approvals, data movement,
-            and repetitive decision support.
+      <section className="mx-auto max-w-[1120px] px-6 py-20 lg:px-10 lg:py-24">
+        <div className="max-w-3xl">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500">Who we help</div>
+          <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+            Businesses that need better execution, not more manual work.
+          </h2>
+          <p className="mt-6 text-base leading-8 text-slate-600">
+            Our work is best suited for manufacturing, trading, distribution, and operations-heavy businesses that need clearer reporting,
+            better workflows, and faster decision-making.
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-4">
-          {services.map((service) => (
-            <article key={service.title} className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_16px_50px_rgba(15,23,42,0.07)]">
-              <div className="text-lg font-semibold text-slate-950">{service.title}</div>
-              <p className="mt-4 text-sm leading-7 text-slate-600">{service.text}</p>
-            </article>
+        <div className="mt-12 border-t border-slate-300 pt-4">
+          {industries.map((industry) => (
+            <div key={industry} className="flex items-center justify-between border-b border-slate-200 py-4 last:border-b-0">
+              <div className="text-lg font-medium text-slate-800">{industry}</div>
+              <div className="h-2.5 w-2.5 rounded-full bg-[#234f47]" />
+            </div>
           ))}
         </div>
       </section>
 
-      <section id="process" className="mx-auto max-w-[1360px] px-8 py-10 lg:px-12">
-        <div className="grid gap-6 lg:grid-cols-[0.75fr_1.25fr]">
-          <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-[0_16px_50px_rgba(15,23,42,0.07)]">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500">How we work</div>
-            <h2 className="mt-3 font-serif text-4xl tracking-tight text-slate-950">Small team. Direct access. Fast iteration.</h2>
-            <p className="mt-5 text-sm leading-7 text-slate-600">
-              We are not a bulky agency layer. You work directly with the builders. That keeps communication short, scope sharper,
-              and delivery faster.
-            </p>
-            <div className="mt-8 space-y-3">
-              {outcomes.map((item) => (
-                <div key={item} className="rounded-2xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
-                  {item}
-                </div>
-              ))}
-            </div>
+      <section id="offerings" className="border-y border-slate-300/70 bg-[#dde7e3]">
+        <div className="mx-auto max-w-[1120px] px-6 py-20 lg:px-10 lg:py-24">
+          <div className="max-w-3xl">
+            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500">Core offerings</div>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+              Three focused service lines.
+            </h2>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2">
-            {process.map((item) => (
-              <article key={item.step} className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_16px_50px_rgba(15,23,42,0.07)]">
-                <div className="text-lg font-semibold text-slate-950">{item.step}</div>
-                <p className="mt-4 text-sm leading-7 text-slate-600">{item.detail}</p>
-              </article>
+          <div className="mt-12 space-y-10">
+            {offerings.map((item, index) => (
+              <div key={item.title} className="grid gap-5 border-t border-slate-300 pt-8 lg:grid-cols-[100px_1fr] lg:gap-8">
+                <div className="text-sm font-semibold text-slate-500 lg:pt-1">0{index + 1}</div>
+                <div>
+                  <h3 className="max-w-3xl text-2xl font-semibold tracking-tight text-slate-950">{item.title}</h3>
+                  <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">{item.text}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="proposal" className="mx-auto max-w-[1360px] px-8 py-10 lg:px-12">
-        <div className="rounded-[36px] border border-slate-200 bg-white px-8 py-9 shadow-[0_20px_60px_rgba(15,23,42,0.08)] lg:px-10">
-          <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500">Business proposal</div>
-          <div className="mt-4 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <h2 className="font-serif text-4xl tracking-tight text-slate-950 lg:text-5xl">Pragati Invest is a partner for business progress.</h2>
-              <p className="mt-5 text-base leading-8 text-slate-600">
-                We help businesses identify one workflow that is slowing revenue, team efficiency, or decision speed, then convert it
-                into a structured digital system. Instead of asking clients to adopt a heavy platform, we build practical automation
-                around the way their teams already operate.
-              </p>
-            </div>
+      <section id="approach" className="mx-auto max-w-[1120px] px-6 py-20 lg:px-10 lg:py-24">
+        <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr]">
+          <div>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500">Why partner with us</div>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+              Business-first thinking with implementation discipline.
+            </h2>
+          </div>
 
-            <div className="grid gap-5">
-              <div className="rounded-[28px] bg-slate-950 p-6 text-white">
-                <div className="text-sm uppercase tracking-[0.22em] text-blue-200">Positioning statement</div>
-                <p className="mt-4 text-xl leading-9">
-                  Pragati Invest helps companies invest in efficiency, clarity, and execution by turning manual workflows into reliable
-                  automation systems.
-                </p>
-              </div>
-              <div className="grid gap-5 md:grid-cols-2">
-                <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-5">
-                  <div className="text-sm font-semibold text-slate-950">Ideal engagement</div>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">
-                    A business audit, one high-impact MVP, and a 2 to 6 week delivery cycle with rapid iteration.
-                  </p>
-                </div>
-                <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-5">
-                  <div className="text-sm font-semibold text-slate-950">Commercial message</div>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">
-                    You are not paying for software complexity. You are paying for reduced friction in a business process.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="space-y-5">
+            {differentiators.map((item) => (
+              <p key={item} className="border-t border-slate-300 pt-5 text-base leading-8 text-slate-700">
+                {item}
+              </p>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1360px] px-8 pb-14 pt-6 lg:px-12">
-        <div className="grid gap-6 rounded-[36px] border border-blue-200 bg-[linear-gradient(135deg,_#135dff_0%,_#0c2d73_100%)] px-8 py-10 text-white shadow-[0_24px_80px_rgba(19,93,255,0.2)] lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
-          <div>
-            <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-100">Let’s build something useful</div>
-            <h2 className="mt-3 font-serif text-4xl tracking-tight lg:text-5xl">Tell us which workflow is costing your team the most time.</h2>
-            <p className="mt-5 max-w-2xl text-sm leading-8 text-blue-50/90">
-              We will help you convert that problem into a practical automation roadmap, a scoped MVP, and a deployment plan your team
-              can actually adopt.
-            </p>
-            <div className="mt-8 space-y-3 text-sm text-blue-50/90">
-              <div>Ideal for businesses dealing with repeated reporting, approvals, manual entry, reconciliation, and fragmented internal coordination.</div>
-              <div>Response format: discovery call, workflow map, problem statement, MVP scope, and rollout recommendation.</div>
-            </div>
-            <div className="mt-8 flex flex-col gap-3">
-              <a
-                href="mailto:hello@pragatiinvest.com"
-                className="inline-flex w-fit rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-blue-50"
-              >
-                hello@pragatiinvest.com
-              </a>
-              <div className="text-sm text-blue-100">Pragati Invest • Automation for operational progress</div>
-            </div>
+      <section className="border-y border-slate-300/70 bg-white">
+        <div className="mx-auto max-w-[1120px] px-6 py-20 lg:px-10 lg:py-24">
+          <div className="max-w-3xl">
+            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500">Engagement model</div>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+              A simple path from workflow review to deployment.
+            </h2>
           </div>
 
-          <form onSubmit={handleSubmit} className="rounded-[32px] border border-white/20 bg-white/10 p-6 backdrop-blur">
-            <div className="text-sm uppercase tracking-[0.22em] text-blue-100">Contact form</div>
-            <div className="mt-5 grid gap-4 md:grid-cols-2">
+          <div className="mt-12 grid gap-y-6 border-t border-slate-300 pt-8 md:grid-cols-2 md:gap-x-10">
+            {engagement.map((step, index) => (
+              <div key={step} className="flex gap-4">
+                <div className="w-10 text-sm font-semibold text-[#234f47]">{index + 1}</div>
+                <div className="text-base leading-8 text-slate-700">{step}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="mx-auto max-w-[1120px] px-6 py-20 lg:px-10 lg:py-24">
+        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="lg:pt-6">
+            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500">Contact</div>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+              Tell us where your workflow is breaking.
+            </h2>
+            <p className="mt-6 max-w-xl text-base leading-8 text-slate-600">
+              We will use that as the starting point for a practical automation conversation. No pricing is shown here because the right
+              scope depends on the workflow.
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="border-t border-slate-300 pt-6 lg:pt-8">
+            <div className="grid gap-4 md:grid-cols-2">
               <label className="space-y-2 text-sm">
-                <span className="text-blue-100">Your name</span>
+                <span className="text-slate-600">Name</span>
                 <input
                   value={form.name}
                   onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
-                  className="w-full rounded-2xl border border-white/20 bg-white/90 px-4 py-3 text-slate-950 outline-none"
-                  placeholder="Enter your name"
+                  className="w-full border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-[#234f47]"
+                  placeholder="Your name"
                 />
               </label>
               <label className="space-y-2 text-sm">
-                <span className="text-blue-100">Company</span>
+                <span className="text-slate-600">Company</span>
                 <input
                   value={form.company}
                   onChange={(event) => setForm((current) => ({ ...current, company: event.target.value }))}
-                  className="w-full rounded-2xl border border-white/20 bg-white/90 px-4 py-3 text-slate-950 outline-none"
-                  placeholder="Your company name"
+                  className="w-full border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-[#234f47]"
+                  placeholder="Company name"
                 />
               </label>
               <label className="space-y-2 text-sm">
-                <span className="text-blue-100">Email</span>
+                <span className="text-slate-600">Email</span>
                 <input
                   type="email"
                   value={form.email}
                   onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
-                  className="w-full rounded-2xl border border-white/20 bg-white/90 px-4 py-3 text-slate-950 outline-none"
+                  className="w-full border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-[#234f47]"
                   placeholder="name@company.com"
                 />
               </label>
               <label className="space-y-2 text-sm">
-                <span className="text-blue-100">Phone</span>
+                <span className="text-slate-600">Phone</span>
                 <input
                   value={form.phone}
                   onChange={(event) => setForm((current) => ({ ...current, phone: event.target.value }))}
-                  className="w-full rounded-2xl border border-white/20 bg-white/90 px-4 py-3 text-slate-950 outline-none"
+                  className="w-full border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-[#234f47]"
                   placeholder="+91"
                 />
               </label>
             </div>
 
             <label className="mt-4 block space-y-2 text-sm">
-              <span className="text-blue-100">Which workflow do you want to improve?</span>
+              <span className="text-slate-600">Operational challenge</span>
               <textarea
                 rows={6}
                 value={form.workflow}
                 onChange={(event) => setForm((current) => ({ ...current, workflow: event.target.value }))}
-                className="w-full rounded-[24px] border border-white/20 bg-white/90 px-4 py-3 text-slate-950 outline-none"
-                placeholder="Describe the manual workflow, repeated task, or operational bottleneck."
+                className="w-full border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-[#234f47]"
+                placeholder="Describe the workflow, delay, or repeated task that should be improved."
               />
             </label>
 
-            <div className="mt-5 flex flex-wrap gap-3">
-              <button type="submit" className="rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800">
+            <div className="mt-6 flex flex-wrap gap-3">
+              <button type="submit" className="rounded-full bg-[#234f47] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#17352f]">
                 Send project brief
               </button>
               <a
                 href={proposalMailto}
-                className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                className="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-white"
               >
                 Open in email
               </a>
             </div>
-            {formMessage ? <p className="mt-4 text-sm text-blue-100">{formMessage}</p> : null}
+            {formMessage ? <p className="mt-4 text-sm text-slate-600">{formMessage}</p> : null}
           </form>
         </div>
+
+        <div className="mt-16 border-t border-slate-300 pt-6 text-sm text-slate-500">Pragati Invest • Intelligent automation for growth-oriented enterprises</div>
       </section>
 
       <script
@@ -380,14 +299,13 @@ export default function Home() {
             name: "Pragati Invest",
             url: "https://pragatiinvest.com",
             description:
-              "Pragati Invest helps businesses reduce manual work through workflow automation, internal tools, AI assistants, and system integrations.",
+              "Pragati Invest provides business intelligence, AI-powered process automation, and AI readiness advisory for Indian SMEs and family-run businesses.",
             email: "hello@pragatiinvest.com",
             areaServed: "India",
             serviceType: [
-              "Workflow Automation",
-              "Internal Tools",
-              "AI Assistants",
-              "System Integration",
+              "Business Intelligence",
+              "Process Automation",
+              "AI Readiness Assessment",
             ],
           }),
         }}
