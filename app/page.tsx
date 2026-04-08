@@ -40,6 +40,65 @@ const engagement = [
   "Ongoing optimization and support",
 ];
 
+const projects = [
+  {
+    title: "Multilingual mutual fund intelligence platform",
+    category: "Voice-enabled financial analysis",
+    description:
+      "A mutual fund analysis platform that summarizes schemes, supports comparison workflows, and delivers voice-enabled explanations across languages including Hindi, Marathi, Tamil, Gujarati, and English.",
+    image: "/projects/project-1-mutual-fund-voice-ai.jpeg",
+    alt: "Multilingual mutual fund intelligence platform interface",
+  },
+  {
+    title: "College fest crypto paper trading platform",
+    category: "Event engagement and simulation platform",
+    description:
+      "A controlled paper trading environment designed for college fests, enabling organizers to run crypto trading competitions with live rankings, simulated capital, and structured participant engagement.",
+    image: "/projects/project-2-campus-crypto-trading.jpeg",
+    alt: "College fest crypto paper trading platform dashboard",
+  },
+  {
+    title: "Mock IPL auction competition platform",
+    category: "Interactive competition platform",
+    description:
+      "A live mock auction system built for competitions and campus events, allowing organizers to conduct IPL-style bidding rounds, participant interactions, and leaderboard-driven engagement in a structured format.",
+    image: "/projects/project-3-mock-ipl-auction.jpeg",
+    alt: "Mock IPL auction competition platform interface",
+  },
+  {
+    title: "Market intelligence terminal",
+    category: "News and technical analysis workspace",
+    description:
+      "An internal market terminal inspired by professional trading workstations, combining live news monitoring, technical analysis views, and decision-support workflows in a single operating interface.",
+    image: "/projects/project-4-market-terminal.jpeg",
+    alt: "Bloomberg-style market intelligence terminal",
+  },
+  {
+    title: "Food and beverage ERP operations dashboard",
+    category: "Operational analytics dashboard",
+    description:
+      "An ERP-linked analytics dashboard for a food and beverage business, designed to improve visibility into business performance, operational trends, and management reporting requirements.",
+    image: "/projects/project-5-food-beverage-dashboard.jpeg",
+    alt: "Food and beverage ERP dashboard",
+  },
+  {
+    title: "Real-time maritime tracking dashboard",
+    category: "Global logistics monitoring",
+    description:
+      "A live maritime monitoring dashboard that tracks vessel movement across global routes, supporting visibility for logistics, shipment awareness, and operational tracking requirements.",
+    image: "/projects/project-6-maritime-dashboard.jpeg",
+    alt: "Real-time maritime tracking dashboard",
+  },
+  {
+    title: "Market sentiment and sector analysis engine",
+    category: "News-driven market analytics",
+    description:
+      "A market analysis engine that reads current news flow or manually entered developments to evaluate sentiment conditions and identify the sectors most affected by emerging market narratives.",
+    image: "/projects/project-7-market-sentiment-engine.jpeg",
+    alt: "Market sentiment and sector analysis engine",
+  },
+];
+
 export default function Home() {
   const [form, setForm] = useState({
     name: "",
@@ -195,30 +254,29 @@ export default function Home() {
           <div className="max-w-3xl">
             <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500">Our projects</div>
             <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
-              Selected product work built for live business and event use cases.
+              Selected systems built across analytics, automation, and digital operations.
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-            <div className="overflow-hidden rounded-[28px] border border-slate-300 bg-slate-100">
-              <img
-                src="/projects/college-campus-crypto-challenge.png"
-                alt="College campus crypto paper trading project dashboard"
-                className="block h-full w-full object-cover"
-              />
-            </div>
+          <div className="mt-12 space-y-14">
+            {projects.map((project, index) => (
+              <div
+                key={project.title}
+                className="grid gap-8 border-t border-slate-300 pt-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10"
+              >
+                <div className={index % 2 === 0 ? "order-1" : "order-1 lg:order-2"}>
+                  <div className="overflow-hidden rounded-[28px] border border-slate-300 bg-slate-100">
+                    <img src={project.image} alt={project.alt} className="block h-full w-full object-cover" />
+                  </div>
+                </div>
 
-            <div className="border-t border-slate-300 pt-6 lg:pt-2">
-              <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#234f47]">College fest trading event platform</div>
-              <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
-                Crypto paper trading setup for campus competitions.
-              </h3>
-              <p className="mt-6 text-base leading-8 text-slate-600">
-                This project is a live paper trading platform built for college fests to conduct crypto trading events in a controlled,
-                leaderboard-based format. It gives organizers a cleaner way to run participation, live rankings, and event engagement
-                without using real money.
-              </p>
-            </div>
+                <div className={index % 2 === 0 ? "order-2" : "order-2 lg:order-1"}>
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#234f47]">{project.category}</div>
+                  <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950">{project.title}</h3>
+                  <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600">{project.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
