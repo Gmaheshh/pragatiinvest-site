@@ -46,7 +46,7 @@ const projects = [
     category: "Voice-enabled financial analysis",
     description:
       "A mutual fund analysis platform that summarizes schemes, supports comparison workflows, and delivers voice-enabled explanations across languages including Hindi, Marathi, Tamil, Gujarati, and English.",
-    image: "/projects/project-2-campus-crypto-trading.jpeg",
+    image: "/projects/mutual-fund-voice-ai.jpeg",
     alt: "Multilingual mutual fund intelligence platform interface",
   },
   {
@@ -54,7 +54,7 @@ const projects = [
     category: "Event engagement and simulation platform",
     description:
       "A controlled paper trading environment designed for college fests, enabling organizers to run crypto trading competitions with live rankings, simulated capital, and structured participant engagement.",
-    image: "/projects/project-3-mock-ipl-auction.jpeg",
+    image: "/projects/college-crypto-trading.jpeg",
     alt: "College fest crypto paper trading platform dashboard",
   },
   {
@@ -62,7 +62,7 @@ const projects = [
     category: "Interactive competition platform",
     description:
       "A live mock auction system built for competitions and campus events, allowing organizers to conduct IPL-style bidding rounds, participant interactions, and leaderboard-driven engagement in a structured format.",
-    image: "/projects/project-4-market-terminal.jpeg",
+    image: "/projects/mock-ipl-auction.jpeg",
     alt: "Mock IPL auction competition platform interface",
   },
   {
@@ -70,7 +70,7 @@ const projects = [
     category: "News and technical analysis workspace",
     description:
       "An internal market terminal inspired by professional trading workstations, combining live news monitoring, technical analysis views, and decision-support workflows in a single operating interface.",
-    image: "/projects/project-5-food-beverage-dashboard.jpeg",
+    image: "/projects/market-terminal.jpeg",
     alt: "Bloomberg-style market intelligence terminal",
   },
   {
@@ -78,7 +78,7 @@ const projects = [
     category: "Operational analytics dashboard",
     description:
       "An ERP-linked analytics dashboard for a food and beverage business, designed to improve visibility into business performance, operational trends, and management reporting requirements.",
-    image: "/projects/project-6-maritime-dashboard.jpeg",
+    image: "/projects/food-beverage-erp-dashboard.jpeg",
     alt: "Food and beverage ERP dashboard",
   },
   {
@@ -86,7 +86,7 @@ const projects = [
     category: "Global logistics monitoring",
     description:
       "A live maritime monitoring dashboard that tracks vessel movement across global routes, supporting visibility for logistics, shipment awareness, and operational tracking requirements.",
-    image: "/projects/project-1-mutual-fund-voice-ai.jpeg",
+    image: "/projects/maritime-tracking-dashboard.jpeg",
     alt: "Real-time maritime tracking dashboard",
   },
   {
@@ -94,7 +94,7 @@ const projects = [
     category: "News-driven market analytics",
     description:
       "A market analysis engine that reads current news flow or manually entered developments to evaluate sentiment conditions and identify the sectors most affected by emerging market narratives.",
-    image: "/projects/project-7-market-sentiment-engine.jpeg",
+    image: "/projects/market-sentiment-engine.jpeg",
     alt: "Market sentiment and sector analysis engine",
   },
 ];
