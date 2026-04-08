@@ -85,6 +85,9 @@ export default function Home() {
           <a href="#offerings" className="text-sm text-slate-600 transition hover:text-slate-950">
             Offerings
           </a>
+          <a href="#projects" className="text-sm text-slate-600 transition hover:text-slate-950">
+            Projects
+          </a>
           <a href="#approach" className="text-sm text-slate-600 transition hover:text-slate-950">
             Approach
           </a>
@@ -183,6 +186,39 @@ export default function Home() {
                 {item}
               </p>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" className="border-y border-slate-300/70 bg-white">
+        <div className="mx-auto max-w-[1120px] px-6 py-20 lg:px-10 lg:py-24">
+          <div className="max-w-3xl">
+            <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500">Our projects</div>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+              Selected product work built for live business and event use cases.
+            </h2>
+          </div>
+
+          <div className="mt-12 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+            <div className="overflow-hidden rounded-[28px] border border-slate-300 bg-slate-100">
+              <img
+                src="/projects/college-campus-crypto-challenge.png"
+                alt="College campus crypto paper trading project dashboard"
+                className="block h-full w-full object-cover"
+              />
+            </div>
+
+            <div className="border-t border-slate-300 pt-6 lg:pt-2">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#234f47]">College fest trading event platform</div>
+              <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
+                Crypto paper trading setup for campus competitions.
+              </h3>
+              <p className="mt-6 text-base leading-8 text-slate-600">
+                This project is a live paper trading platform built for college fests to conduct crypto trading events in a controlled,
+                leaderboard-based format. It gives organizers a cleaner way to run participation, live rankings, and event engagement
+                without using real money.
+              </p>
+            </div>
           </div>
         </div>
       </section>
